@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Quiz</title>
+	<link rel="stylesheet" href="quiz.css">
+	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+</head>
+<body>
+<!-- Once the game is started, the user should be prompted through a series of at least 5 multiple choice questions which they can answer. Questions are to be asked one after another, and the user should only be able to view one question at a time.
+Users should not be able to skip questions.
+When viewing an individual question, the user should also be able to see which question they're on (for instance, "7 out of 10") and their current score ("5 correct, 2 incorrect").
+When a user submits an answer to a question, they should first get feedback on if their answer was correct or not. If it's incorrect, they should be shown the correct answer. Then they should be moved along to the next question.
+After the user has completed the final question, they should be shown their overall score (in other words, how many questions they got right out of the total questions asked) and be able to start a new game.-->
+<div class="content">
+	<h1>Question:  (number)</h1>
+	<p class="questionText">The first question goes here.</p>
+	<form action="">
+		<input class="radioButton" type="radio" name="answer" value="ans1"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>
+		<input class="radioButton" type="radio" name="answer" value="ans2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>
+		<input class="radioButton" type="radio" name="answer" value="ans3"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>
+		<input class="radioButton" type="radio" name="answer" value="ans4"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>
+		<input class="radioButton" type="radio" name="answer" value="ans5"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>
+		<input class="submitButton" type="submit" name="submit" value="Submit">
+	</form>
+	<div>
+		<h4># Correct # Incorrect</h4>
+	</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
