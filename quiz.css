@@ -9,6 +9,10 @@ h1{
 	margin-bottom: 20px;
 }
 
+li{
+	list-style: none;
+}
+
 .content{
 	padding: 30px;
 	margin: 20px, 20px;
