@@ -41,3 +41,7 @@ li{
 	display: block;
 	text-decoration: none;
 }
+
+.newGameButton{
+	display: none;
+}

@@ -13,16 +13,15 @@ When viewing an individual question, the user should also be able to see which q
 When a user submits an answer to a question, they should first get feedback on if their answer was correct or not. If it's incorrect, they should be shown the correct answer. Then they should be moved along to the next question.
 After the user has completed the final question, they should be shown their overall score (in other words, how many questions they got right out of the total questions asked) and be able to start a new game.-->
 <div class="content">
-	<ul><span id="question"></span>
+	<ul class="question">
 <!-- 		<li>
 			<h1>Question:  1</h1>
 			<p class="questionText">What is Elvis Presley's middle name?</p>
 			<form class="submitAnswer">
-				<input class="radioButton" type="radio" name="answer" value="ans1"> James<br>
-				<input class="radioButton" type="radio" name="answer" value="ans2"> Aaron<br>
-				<input class="radioButton" type="radio" name="answer" value="ans3"> David<br>
-				<input class="radioButton" type="radio" name="answer" value="ans4"> Seth<br>
-				<input class="button submitButton" type="submit" name="submit" value="Submit">
+				<input class="radioButton" type="radio" name="answer"> James<br>
+				<input class="radioButton" type="radio" name="answer"> Aaron<br>
+				<input class="radioButton" type="radio" name="answer"> David<br>
+				<input class="radioButton" type="radio" name="answer"> Seth
 			</form>
 		</li> -->
 	</ul>
@@ -34,9 +33,7 @@ After the user has completed the final question, they should be shown their over
 		<h3>CORRECT OR INCORRECT MESSAGE</h3>
 	</div>
 
-	<input class="button" type="submit" name="nextButton" value="Next">
-
-	<input class="button" type="submit" name="newGameButton" value="New Game">
+	<input class="button newGameButton" type="submit" name="newGameButton" value="New Game">
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
