@@ -19,12 +19,12 @@ li{
 }
 
 .questionText{
-	margin-left: 40px;
+	margin-left: 20px;
 	margin-bottom: 20px;
 }
 
-.radioButton{
-	margin-left: 70px;
+.submitAnswer{
+	margin-left: 50px;
 }
 
 .button{
@@ -44,4 +44,8 @@ li{
 
 .newGameButton{
 	display: none;
+}
+
+.playerScore{
+	margin-top: 30px;
 }
