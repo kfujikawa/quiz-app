@@ -7,7 +7,17 @@ var state = {
     ans3: ["David", "Baritone", "The Beach Boys", "Louise Ciccone", "Hearing aid"],
     ans4: ["Seth", "Bass", "The Beatles", "Madonna Louise Ciccone", "Sousaphone"],
     currentQuestion: [], 
+    correct: 0, 
+    incorrect: 0,
 };
+
+var answers = {
+	q1: "Aaron", 
+	q2: "Bass", 
+	q3: "The Beatles", 
+	q4: "Madonna Louise Ciccone", 
+	q5: "Jukebox", 
+}
 
 // State modification functions
 function getCurrentQuestion(state, index){
@@ -16,6 +26,7 @@ function getCurrentQuestion(state, index){
 	console.log(currentQuestion);
 }
 getCurrentQuestion(state, 0);
+
 
 // Render functions
 function renderQuestion(state, index){
@@ -35,15 +46,26 @@ function renderQuestion(state, index){
 				"<input class='radioButton' type='radio' name='answer' value='ans2'> " + answer2 + "<br>" +
 				"<input class='radioButton' type='radio' name='answer' value='ans3'> " + answer3 + "<br>" +
 				"<input class='radioButton' type='radio' name='answer' value='ans4'> " + answer4 + "</li>" + "<br>" + 
-				"<input class='button type='submit' name='submit' value='Submit'>" +
+				"<input class='button submitButton' type='submit' name='submit' value='Submit'>" +
 			"</form>" + 
 		"</li>";
 }
 renderQuestion(state, 0);
 
 // Event listeners
-// $('.shopping-list-add').submit(function(event) {
-//     event.preventDefault();
-//     addItem(state, $('.shopping-list-add-input').val());
-//     renderList(state, $('.shopping-list'));
-// });
+
+$(".submitButton").click(function(event){
+	var userAnswer = $('input:radio[name="answer"]:checked').val();
+
+        if(userAnswer == answers.q1){
+            state.correct += 1;
+        	console.log("current correct answers " + state.correct);
+        	console.log("current incorrect answers " + state.incorrect);
+        }
+        else{
+            alert(answers.q1 + " is the correct answer");
+            console.log("current correct answers " + state.correct);
+        	console.log("current correct answers " + state.incorrect);
+    	};
+    event.preventDefault();
+});
