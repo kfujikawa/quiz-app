@@ -33,6 +33,8 @@ var questions = [
 ];
 
 var currentQuestion = 0;
+var correct = 0;
+var incorrect = 0;
 
 // State modification functions
 
@@ -53,23 +55,40 @@ function renderQuestion(){
 		};
 	};
 
-	renderRadioButtons();
-};
+	function renderScore(){
+		$(".playerScore").append(
+			"<h4>" + correct + " Correct " + incorrect + " Incorrect");
+	}
 
-renderQuestion();
-validateQuestion();
+	renderRadioButtons();
+	renderScore();
+};
 
 // Event listeners
 
 function validateQuestion() {
 	$('.submitAnswer input').on('click', function() {
    		if($("input:radio[name=answer]:checked").val() === questions[currentQuestion].c) {
+   			alert("Correct!");
+   			correct++;
 			currentQuestion++;
 			$('.question').empty();
+			$('.playerScore').empty();
 			renderQuestion();
 		}
 		else {
 			alert("Answer is incorrect!  Correct answer is " + questions[currentQuestion].c);
+			incorrect++;
+			currentQuestion++;
+			$('.question').empty();
+			$('.playerScore').empty();
+			renderQuestion();
 		}
 	});
 };
+
+
+$(document).ready(function(){
+	renderQuestion();
+	validateQuestion();
+});
