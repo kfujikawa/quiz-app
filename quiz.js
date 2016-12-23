@@ -1,31 +1,26 @@
 // Single state object
 var questions = [
 	{
-		n: 1, 
 		q: "What is Elvis Presley’s middle name?",
 		a: ["James", "Aaron", "David", "Seth"], 
 		c: "Aaron"
 	}, 
 	{
-		n: 2, 
 		q: "What is the lowest male voice?",
 		a: ["Countertenor", "Tenor", "Baritone", "Bass"], 
 		c: "Bass"
 	}, 
 	{
-		n: 3, 
 		q: "Which famous group was once known as The Quarrymen?",
 		a: ["The Rolling Stones", "Led Zeppelin", "The Beach Boys", "The Beatles"], 
 		c: "The Beatles"
 	}, 
 	{
-		n: 4, 
 		q: "What is Madonna’s full name?",
 		a: ["Madonna", "Madonna Ciccone", "Louise Ciccone", "Madonna Louise Ciccone"], 
 		c: "Madonna Louise Ciccone"
 	}, 
 	{
-		n: 5, 
 		q: "What is the noisy invention of Louis Glass in 1890 called?",
 		a: ["Jukebox", "Gramophone", "Hearing aid", "Sousaphone"], 
 		c: "Jukebox"
@@ -43,52 +38,58 @@ var incorrect = 0;
 function renderQuestion(){
 	var question = questions[currentQuestion];
 
-	$(".question").append(
-		"<li>" + 
-			"<h1>" + "Question: " + question.n + "</h1>" + 
-			"<p class='questionText'>" + question.q + "</p>" + 
-			"<form class='submitAnswer'>");
+	if(currentQuestion < 5){
+		console.log("if condition");
 
-	function renderRadioButtons(){
-		for(var i = 0; i < question.a.length; i++){
-			$(".submitAnswer").append("<input type='radio' name='answer' value='" + question.a[i] + "'> " + question.a[i] + "<br>");
+		$(".question h1").text("Question: " + (currentQuestion + 1));
+		$(".question p").text(question.q);
+
+		function renderRadioButtons(){
+			for(var i = 0; i < question.a.length; i++){
+				$(".question form").append("<input type='radio' name='answer' value='" + question.a[i] + "'> " + question.a[i] + "<br>");
+			};
 		};
-	};
 
-	function renderScore(){
-		$(".playerScore").append(
-			"<h4>" + correct + " Correct " + incorrect + " Incorrect");
+		function renderScore(){
+			$(".playerScore").append(
+				"<h4>" + correct + " Correct " + incorrect + " Incorrect");
+		}
+
+		renderRadioButtons();
+		renderScore();
 	}
+	else{
+		console.log("else condition");
 
-	renderRadioButtons();
-	renderScore();
-};
+		$(".question h1").text("Game Over! " + "You got " + correct + " correct and " + incorrect + " incorrect.");
+		$(".question p").text("Select New Game to play again!");
+		$(".newGameButton").toggle();
+		$(".submitAnswerButton").toggle();
+	}
+}
+
+function emptyAndRender(){
+	$(".question h1").empty();
+	$(".question p").empty();
+	$(".question form").empty();
+	$(".playerScore").empty();
+	renderQuestion();
+}
 
 // Event listeners
 
-function validateQuestion() {
-	$('.submitAnswer input').on('click', function() {
-   		if($("input:radio[name=answer]:checked").val() === questions[currentQuestion].c) {
-   			alert("Correct!");
-   			correct++;
-			currentQuestion++;
-			$('.question').empty();
-			$('.playerScore').empty();
-			renderQuestion();
-		}
-		else {
-			alert("Answer is incorrect!  Correct answer is " + questions[currentQuestion].c);
-			incorrect++;
-			currentQuestion++;
-			$('.question').empty();
-			$('.playerScore').empty();
-			renderQuestion();
-		}
-	});
-};
-
-
-$(document).ready(function(){
-	renderQuestion();
-	validateQuestion();
+$(".submitAnswerButton").on("click", function() {
+		if($("input:radio[name=answer]:checked").val() === questions[currentQuestion].c) {
+		correct++;
+		currentQuestion++;
+		emptyAndRender();
+	}
+	else {
+		alert("Answer is incorrect!  Correct answer is " + questions[currentQuestion].c);
+		incorrect++;
+		currentQuestion++;
+		emptyAndRender();
+	}
 });
+
+renderQuestion();

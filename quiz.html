@@ -7,29 +7,17 @@
 	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 </head>
 <body>
-<!-- Once the game is started, the user should be prompted through a series of at least 5 multiple choice questions which they can answer. Questions are to be asked one after another, and the user should only be able to view one question at a time.
-Users should not be able to skip questions.
-When viewing an individual question, the user should also be able to see which question they're on (for instance, "7 out of 10") and their current score ("5 correct, 2 incorrect").
-When a user submits an answer to a question, they should first get feedback on if their answer was correct or not. If it's incorrect, they should be shown the correct answer. Then they should be moved along to the next question.
-After the user has completed the final question, they should be shown their overall score (in other words, how many questions they got right out of the total questions asked) and be able to start a new game.-->
 <div class="content">
-	<ul class="question">
-<!-- 		<li>
-			<h1>Question:  1</h1>
-			<p class="questionText">What is Elvis Presley's middle name?</p>
-			<form class="submitAnswer">
-				<input class="radioButton" type="radio" name="answer"> James<br>
-				<input class="radioButton" type="radio" name="answer"> Aaron<br>
-				<input class="radioButton" type="radio" name="answer"> David<br>
-				<input class="radioButton" type="radio" name="answer"> Seth
-			</form>
-		</li> -->
-	</ul>
-	<div class="playerScore">
-		<!-- <h4># Correct # Incorrect</h4> -->
+	<div class="question">
+		<h1></h1>
+		<p></p>
+		<form></form>
+		<input class="button submitAnswerButton" type="submit" name="submitAnswerButton" value="Submit">
 	</div>
-
-	<input class="button newGameButton" type="submit" name="newGameButton" value="New Game">
+	<div class="playerScore">
+	</div>
+	
+	<a href="index.html" class="button newGameButton" type="submit" name="newGameButton" value="New Game"">New Game</a>
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
