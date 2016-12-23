@@ -64,7 +64,7 @@ function renderQuestion(){
 		$(".question h1").text("Game Over! " + "You got " + correct + " correct and " + incorrect + " incorrect.");
 		$(".question p").text("Select New Game to play again!");
 		$(".newGameButton").toggle();
-		$(".submitAnswerButton").toggle();
+		// $(".submitAnswerButton").toggle();
 	}
 }
 
